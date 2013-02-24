@@ -74,17 +74,11 @@ body {
    =================== */
 
 .header-container {
-    position: relative;
-    z-index: 10;
-}
-
-.bar-container {
-    top:0;
-    margin-top: -200px;
-    height: 190px;
-    opacity:0.5;
-    filter:alpha(opacity=50); /* For IE8 and earlier */
+    width: 100%;
+    opacity:0.7;
+    filter:alpha(opacity=70); /* For IE8 and earlier */
     background: black;
+    z-index: 10;
 }
 
 .title {
@@ -117,6 +111,11 @@ body {
     MOBILE: Menu
    ============== */
 
+nav {
+    z-index: 42;
+
+}
+
 nav ul {
     font-family:"futura_ltbook",Arial,sans-serif;
     font-weight: normal;
@@ -128,24 +127,23 @@ nav a {
     display: block;
     margin-bottom: 10px;
     padding: 5px 0;
-
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-
     color: white;
     background: transparent;
     white-space: nowrap;
-
 }
 
-nav a:hover,
-nav a:visited {
-    color: white;
+nav li a:hover {
+    color: #fff;
+    background: #40bfe8;
+    text-decoration: none;
 }
-
-nav a:hover {
-    text-decoration: underline;
+nav li a.selected {
+    color: #fff;
+    background: #40bfe8;
+    text-decoration: none;
 }
 
 /* ==============
@@ -188,27 +186,31 @@ body {
 section {
     text-align: left;
     padding: 40px;
-    background-color: #eee;
+    background-color: #f9f8e2;
     height: 100%;
     margin-top: 200px;
     color: black;
 
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
 }
 section h1 {
-    font-size: 4em;
+    font-size: 1.2em;
     line-height: 120%;
-    padding: 0 20px;
-
+    padding: 0 0px;
 }
 
 .column {
-    float: left;
-    width: 50%;
+    float: none;
+    width: 100%;
 }
 .column p {
-    font-size: 1.5em;
+    font-size: .9em;
     line-height: 140%;
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
 /* ==========================================================================
@@ -226,7 +228,6 @@ section h1 {
     }
 
     /** get the transparent bar on the bottom **/
-    .bar-container,
     .header-container {
         position:absolute;
         bottom:20px;
@@ -234,10 +235,13 @@ section h1 {
         line-height:12px;
     }
 
-    .bar-container {
-        top: inherit;
-        margin: 0;
-        height: 40px;
+    .header-container.sticky {
+        position: fixed;
+        top: 15px;
+        
+        animation:thedrop 1s 1;
+        -moz-animation:thedrop 1s 1;
+        -webkit-animation:thedrop 1s 1;
     }
 
     #introtext .head-sarah {
@@ -259,31 +263,50 @@ section h1 {
 
     nav ul {
         text-align: center;
+        margin: auto;
+        padding: 0;
+        text-align: center;
     }
     nav ul li {
         display: inline;
+        padding: 0;
+        margin: 0;
     }
 
     nav a {
-        margin: 0 1.7%;
         padding: 15px 2%;
         margin-bottom: 0;
         display:inline-block;
         font-size: 80%;
+        white-space: nowrap;
+
+        -moz-font-smoothing: antialiased;
+        -o-font-smoothing: antialiased;
+        -ms-font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        transition: all .3s ease;
     }
 
-    nav li:first-child a {
-        margin-left: 0;
-    }
-
-    nav li:last-child a {
-        margin-right: 0;
-    }
     .main header {
         margin-top: 10%;
         float: left;
         width: 60%;
     }
+
+
+    section h1 {
+        font-size: 1.9em;
+    }
+    .column p {
+        font-size: 1.1em;
+    }
+
 /* ========================
     INTERMEDIATE: IE Fixes
    ======================== */
@@ -302,15 +325,16 @@ section h1 {
 /* ====================
     WIDE: CSS3 Effects
    ==================== */
-
+    section h1 {
+        font-size: 2.6em;
+    }
+    .column p {
+        font-size: 1.4em;
+    }
 
 /* ============
     WIDE: Menu
    ============ */
-
-    nav {
-        width: 100%;
-    }
 
     #introtext .head-sarah {
         font-size: 9em;
@@ -341,6 +365,10 @@ section h1 {
     Maximal Width
    =============== */
 
+    nav {
+        font-size: 130%;
+    }
+
     .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
@@ -348,7 +376,7 @@ section h1 {
 
     #introtext .head-sarah {
         font-size: 10em;
-   }
+    }
     #introtext .amp {
         font-size: 1.2em;
     }
@@ -357,9 +385,25 @@ section h1 {
     }
     .main header {
         margin-top: 0;
+        margin-bottom: 30%;
         float: left;
         width: 40%;
     }
+
+    section h1 {
+        font-size: 4em;
+        padding: 0 10px;
+
+    }
+    .column {
+        float: left;
+        width: 50%;
+    }
+    .column p {
+        font-size: 1.8em;
+        line-height: 140%;
+        padding: 0 10px;
+    }    
 }
 
 /* ==========================================================================
@@ -495,9 +539,16 @@ section h1 {
     }
 }
 
-/*******************************/
-/*********** FONTS *************/
-/*******************************/
+/* =============================================================================
+   WAYPOINTS WITH SCROLL-TO
+   ========================================================================== */
+
+
+
+/* =============================================================================
+   FONTS
+   ========================================================================== */
+
 @font-face {
     font-family: 'futura_ltbold';
     src: url('futuralt-bold-webfont.eot');
