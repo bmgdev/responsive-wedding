@@ -391,8 +391,7 @@ section h1 {
     }
 
     section h1 {
-        font-size: 4em;
-        padding: 0 10px;
+        padding: 0 20px;
 
     }
     .column {
@@ -400,9 +399,8 @@ section h1 {
         width: 50%;
     }
     .column p {
-        font-size: 1.8em;
         line-height: 140%;
-        padding: 0 10px;
+        padding: 0 20px;
     }    
 }
 

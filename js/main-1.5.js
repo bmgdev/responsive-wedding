@@ -50,7 +50,7 @@ $(function() {
 		$.scrollTo(
 			$(this).attr("href"),
 			{
-				duration: 1400,
+				duration: 1000,
 				offset: { 'left':0, 'top':-0.08*$(window).height() }
 			}
 		);
