@@ -65,6 +65,8 @@ body {
 }
 
 .wrapper {
+    height: 100%;
+    position: relative;
     width: 90%;
     margin: 0 5%;
 }
@@ -87,6 +89,7 @@ body {
 #introtext {
     display: block;
     height: 450px;
+    margin-bottom: 300px;
 }
 
 #introtext .head-sarah {
@@ -113,7 +116,6 @@ body {
 
 nav {
     z-index: 42;
-
 }
 
 nav ul {
@@ -161,31 +163,59 @@ nav li a.selected {
 /* ==========================================================================
    Brad's custom styles
    ========================================================================== */
+* { margin: 0; padding: 0; }
 html {
-    width: 100%;
-    height: 100%;
+    /**
+    background-image: url(../img/bg-pic.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    **/
+    /**
+    background: url(../img/bg-pic.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    **/
 }
 
 body {
     font-family: "futura_ltbook", "HelveticaNeueLTStdRegular","HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     color: #fff;
     text-align: center;
-    background-image: url(../img/bg-pic.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    -webkit-background-size: 100%;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+
 }
+
+#bg-image {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+#bg-image img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+
 #bg-container {
-    min-height: 2200px;
+
 }
 
 section {
     text-align: left;
-    padding: 40px;
+    padding: 25px;
     background-color: #f9f8e2;
     height: 100%;
     margin-top: 200px;
@@ -206,11 +236,13 @@ section h1 {
 .column {
     float: none;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 .column p {
-    font-size: .9em;
+    font-size: 1em;
     line-height: 140%;
-    padding: 0 0px;
+    padding: 0;
 }
 
 /* ==========================================================================
@@ -257,8 +289,7 @@ section h1 {
     }
 
     nav {
-        white-space: nowrap;
-        display: inline-block;
+        display: block;
     }
 
     nav ul {
@@ -277,7 +308,7 @@ section h1 {
         padding: 15px 2%;
         margin-bottom: 0;
         display:inline-block;
-        font-size: 80%;
+        font-size: 60%;
         white-space: nowrap;
 
         -moz-font-smoothing: antialiased;
@@ -296,10 +327,13 @@ section h1 {
     .main header {
         margin-top: 10%;
         float: left;
-        width: 60%;
+        width:30%;
     }
 
+    section {
+        padding: 40px;
 
+    }
     section h1 {
         font-size: 1.9em;
     }
@@ -325,6 +359,7 @@ section h1 {
 /* ====================
     WIDE: CSS3 Effects
    ==================== */
+ 
     section h1 {
         font-size: 2.6em;
     }
@@ -353,9 +388,13 @@ section h1 {
    ============ */
 
     .main header {
-        margin-top: 5%;
+        margin-top: 7%;
         float: left;
-        width: 50%;
+        width: 38%;
+    }
+
+    nav a {
+        font-size: 90%;
     }
 }
 
@@ -365,8 +404,8 @@ section h1 {
     Maximal Width
    =============== */
 
-    nav {
-        font-size: 130%;
+    nav a {
+        font-size: 120%;
     }
 
     .wrapper {
