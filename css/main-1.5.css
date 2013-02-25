@@ -77,10 +77,16 @@ body {
 
 .header-container {
     width: 100%;
-    opacity:0.7;
-    filter:alpha(opacity=70); /* For IE8 and earlier */
     background: black;
     z-index: 10;
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.9 opacity */
+    background: rgba(0, 0, 0, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
 .title {
@@ -139,12 +145,12 @@ nav a {
 
 nav li a:hover {
     color: #fff;
-    background: #40bfe8;
+    background: #b1bf92;
     text-decoration: none;
 }
 nav li a.selected {
     color: #fff;
-    background: #40bfe8;
+    background: #b1bf92;
     text-decoration: none;
 }
 
@@ -216,19 +222,34 @@ body {
 section {
     text-align: left;
     padding: 25px;
-    background-color: #f9f8e2;
+    background-color: black;
     height: 100%;
     margin-top: 200px;
-    color: black;
+    color: white;
 
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
+
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.7 opacity */
+    background: rgba(0, 0, 0, 0.7);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
+
 section h1 {
-    font-size: 1.2em;
+    font-size: 1.6em;
+    line-height: 120%;
+    padding: 0 0px;
+}
+section h2 {
+    font-size: 1.1em;
     line-height: 120%;
     padding: 0 0px;
 }
@@ -337,6 +358,10 @@ section h1 {
     section h1 {
         font-size: 1.9em;
     }
+    section h2 {
+        font-size: 1.7em;
+
+}
     .column p {
         font-size: 1.1em;
     }
@@ -362,6 +387,9 @@ section h1 {
  
     section h1 {
         font-size: 2.6em;
+    }
+    section h2 {
+        font-size: 2.0em;
     }
     .column p {
         font-size: 1.4em;
@@ -428,10 +456,13 @@ section h1 {
         float: left;
         width: 40%;
     }
-
-    section h1 {
+    section h1,
+    section h2 {
         padding: 0 20px;
-
+    }
+    .column.full {
+        float: none;
+        width: 100%;
     }
     .column {
         float: left;
@@ -650,5 +681,32 @@ section h1 {
          url('scriptina_pro-webfont.svg#scriptina_proregular') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+
+/* =============================================================================
+   ALPHA TRANSPARENCY TRICKS
+   ========================================================================== */
+
+/** FROM: http://robertnyman.com/2010/01/11/css-background-transparency-without-affecting-child-elements-through-rgba-and-filters/ **/
+.alpha70 {
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.7 opacity */
+    background: rgba(0, 0, 0, 0.7);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.alpha90 {
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(0, 0, 0);
+    /* RGBa with 0.9 opacity */
+    background: rgba(0, 0, 0, 0.9);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
