@@ -57,5 +57,5 @@ $(function() {
 			event.preventDefault();
 	});
 
-
+    $('figure.responsive-image').picture();
 });
