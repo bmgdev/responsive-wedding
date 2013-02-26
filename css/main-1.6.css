@@ -79,6 +79,42 @@ body {
     margin: 0 5%;
 }
 
+
+/* =============================================================================
+   GOOGLE MAPS
+   ========================================================================== */
+#gmap {
+    text-align: center;
+    margin: 20px auto 20px auto;
+}
+
+#gmap iframe {
+    width: 93%;
+    height: 200px;
+
+    border: 10px solid #090909;
+
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+#gmap small a,
+#gmap small a:active,
+#gmap small a:visited {
+    color: #b1bf92;
+    text-decoration: none;
+    outline: none;
+}
+
+#gmap small a:hover {
+    color: #b1bf92;
+    text-decoration: underline;
+    outline: none;
+}
+
 /* ===================
     Theme
    =================== */
@@ -210,23 +246,7 @@ nav ul li a::-moz-focus-inner {border:0;}
    ========================================================================== */
 * { margin: 0; padding: 0; }
 html {
-    /**
-    background-image: url(../img/bg-pic.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    **/
-    /**
-    background: url(../img/bg-pic.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    **/
+
 }
 
 body {
@@ -409,11 +429,18 @@ section h2 {
     }
     section h2 {
         font-size: 1.7em;
+    }
 
-}
+
     .column p {
         font-size: 1.1em;
     }
+
+    #gmap iframe {
+        height: 400px;
+    }
+
+
 
 /* ========================
     INTERMEDIATE: IE Fixes
@@ -681,10 +708,6 @@ section h2 {
     }
 }
 
-/* =============================================================================
-   WAYPOINTS WITH SCROLL-TO
-   ========================================================================== */
-
 
 
 /* =============================================================================
@@ -794,8 +817,9 @@ section h2 {
 }
 
 img.theinn  {
-    margin-bottom: 20px;
+
     text-align: center;
+    margin-bottom: 50px;
 }
 
 div.bp h2 {
@@ -803,40 +827,6 @@ div.bp h2 {
 }
 div.bp .column p {
     line-height: 180%;
-}
-
-#gmap {
-    text-align: center;
-    margin: 20px auto 20px auto;
-}
-
-#gmap iframe {
-    width: 93%;
-    height: 400px;
-
-    border: 10px solid #090909;
-
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-}
-
-iframe, object, embed{max-width: 100%;}
-
-#gmap small a,
-#gmap small a:active,
-#gmap small a:visited {
-    color: #b1bf92;
-    text-decoration: none;
-    outline: none;
-}
-
-#gmap small a:hover {
-    color: #b1bf92;
-    text-decoration: underline;
-    outline: none;
 }
 
 .hr-t {
