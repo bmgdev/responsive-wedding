@@ -5,4 +5,5 @@ An HTML5 responsive design using jquery waypoints & scroll-to for a pleasant sin
 
 ========
 
-![Preview](https://github.com/bmgdev/responsive-wedding/blob/master/responsive-wedding/preview.png?raw=true)
+![Preview](https://github.com/bmgdev/responsive-wedding/blob/master/preview.png?raw=true)
+
