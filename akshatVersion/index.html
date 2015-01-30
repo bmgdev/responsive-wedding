@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1024"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>Praful and Sonal</title>
+<meta name="description" content="Wedding site for Praful and Sonal"/>
+<meta name="author" content="Akshat Goel"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+<link href='css/component.css' rel='stylesheet' type='text/css'>
+<style>
+		*{padding:0;margin:0;border:0;}
+	body{background: #faf6e3;font-family:"Open Sans Condensed";}
+	.impress-supported .fallback-message{display:none;}
+	.impress-not-supported .menu{display:none;}
+	.impress-not-supported #impress{display:none;}
+	.impress-not-supported .playerAction{display:none;}
+	.menu{position:fixed;top:20%;left:0%;}
+	.menu ul{list-style-type:none;left:0px;}
+	.menu li{margin: 25px auto;}
+	.menu li a{text-decoration:none;color: #fff;padding: 10px 50px 10px 20px;}
+	.menu li a:hover{padding-right:40px;}
+	.tang{font-family: "Tangerine";}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+		var NOT_STOPPED = true;
+		function pulse() {
+			if(NOT_STOPPED){
+				$('img.main').animate({
+					width: 900,
+					opacity: 1
+				}, 1000, function() {
+					$('img.main').animate({
+						width:800,
+						opacity: 0.8
+					}, 1000, function() {
+						pulse();
+					});
+				}); 
+			}
+		};
+		$(function(){
+			var tab = document.location.href.split("#/")[1];
+			var bg = $("a[href=#"+tab+"]").data("bg");
+			$("body").animate({"backgroundColor":bg},500);
+			pulse();
+			$("img.main").hover(function(){ 
+				NOT_STOPPED = false;
+				$("img.main").stop();
+				$('img.main').animate({
+					width: 900,
+					opacity: 1
+				}, "fast");
+			}, function(){
+				NOT_STOPPED = true;
+				pulse();
+			});
+			$(".menu a").hover(function(){
+				$(this).animate({ 'padding-right' : '70px' }, "fast");
+			}, function(){
+				$(this).animate({ 'padding-right' : '50px' }, "fast");
+			});
+			$("a").click(function(){
+				$("body").animate({"backgroundColor":$(this).data("bg")},500);
+			});
+		});
+	</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(".impress-supported #jquery_jplayer_1").jPlayer({
+        ready: function() {
+          $(this).jPlayer("setMedia", {
+            mp3: "bg.mp3"
+          }).jPlayer("play");
+          var click = document.ontouchstart === undefined ? 'click' : 'touchstart';
+          var kickoff = function () {
+            $("#jquery_jplayer_1").jPlayer("play");
+            document.documentElement.removeEventListener(click, kickoff, true);
+          };
+          document.documentElement.addEventListener(click, kickoff, true);
+        },
+        loop: true,
+        swfPath: "js",
+				solution: "flash,html"
+      });
+			
+			var MUSIC_STOPPED = false;
+			$(".playerAction").click(function(){
+				if(MUSIC_STOPPED){
+					$("#jquery_jplayer_1").jPlayer( "play");
+					$(this).attr("src", "play.png");
+				}
+				else{
+					$("#jquery_jplayer_1").jPlayer( "pause");
+					$(this).attr("src", "stop.png");
+				}
+				MUSIC_STOPPED = !MUSIC_STOPPED;
+			});
+    });
+  </script>
+<script>
+	$(document).ready(function(){
+		var h = $(window).height();
+		var w = $(window).width();
+		var imgW = 0.95*w;
+		var imgH = 0.95*h;
+		
+		//alert(h);
+		//alert(w);
+		if(h < w){
+			$(".fallback-message img").height(imgH);
+			$(".fallback-message").css("margin-top",0.015*h);
+		}
+		else{
+			$(".fallback-message img").width(imgW);
+		}
+	});
+</script>
+</head>
+<body class="impress-not-supported">
+<div id="jquery_jplayer_1" ></div>
+<div class="fallback-message" style="text-align:center;">
+	<img src="fallback.png" style="height:100%;"/>
+	<h2 style="margin-top:10px;padding: 10px;color: #e24646;">
+		You are using an unsupported browser version. Please use latest version of Mozilla Firefox or Google Chrome to view the full site.
+	</h2>
+</div>
+<div class="menu">
+	<ul>
+		<li><a href="#home" data-bg="#faf6e3" style="background: #4676e2;">Home</a></li>
+		<li><a href="#bridegroom" data-bg="#faf6e3" style="background: #c85ccf;">The Bride and Groom</a></li>
+		<li><a href="#story" data-bg="#faf6e3" style="background: #e24646;">The Story</a></li>
+		<li><a href="#wedding" class="wedding" data-bg="#faf6e3" style="background: #355561;">The Wedding</a></li>
+		<li><a href="#accomodation" data-bg="#faf6e3" style="background: #0f6f13;">Accomodations</a></li>
+	</ul>
+</div>
+
+<img src="play.png" class="playerAction" style="width:32px;cursor:pointer;position:absolute;bottom: 20px;right: 20px;"/>
+
+<div id="impress">
+	<div class="step slide" data-x="0" data-y="0" id="home">
+		<img src="main.png" class="main"/>
+	</div>
+	<div class="step slide" id="bridegroom" data-y="500" data-scale="0.4" data-rotate-x="30">
+		<div style="width:1000px;">
+			<img src="groom.png" style="width:10%;float:left;margin-top:23%;"/>
+			<div style="background:#E0674A;width:80%;float:left;height:520px;color:#fff;" >
+			
+				<div>
+				<div style="float:left;width:41%;margin:4%;">
+				<h2 style="color:#fff;font-size:56px;">Praful </h2>
+					Praful loves and respects his parents the most. He was born on the banks of the river Ganges in Allahabad, India. He is Hanumanji's bhakt (a devotee of lord Hanuman) since birth also (But cannot recite the Hanuman Chalisa as fast as Sonal). He also grew up climbing trees, but throughout 4 different countries. Through his adventures, he made a lot of close friends. They admire his humour, affection and blatant honesty. He is a vegetarian that loves eating Fake Meat and anything fried and cheesy. After graduating high school in Malaysia, he went to America to pursue his degree and got stuck their by his ambition to change the world. He is now on the Product team at Runnable.com in San Francisco. 
+					
+				</div>
+				<div style="float:left;margin-top:20%;">
+					<img src="vertical.png" />
+				</div>
+				<div style="float:right;width:40%;margin:4%;text-align:right;">
+					<h2 style="color:#fff;font-size:56px;">Sonal </h2>
+					Sonal also loves and respects her parents the most. She was born in Lucknow, India. She is Hanumanji's bhakt since childhood and she can recite the Hanuman Chalisa in less than 2 minutes. She grew up climbing trees and running other sorts of ruckus in town. She has a lot of close friends who admire her vicacious and mischievious nature; as they also know that inside she is a soft and caring person. She doesn't take kindly to people trying to upsell her (especially Rikshaw walas, Dominos Delivery guys and street peddlers marking up the MSRP on soft drinks). She adores desi mangoes and foreign strawberries. She basically loves anything sweet. Her soft hearted sweetness does not mean she is not determined! Her hardwork, mental strength and determination has lead to her current position as Team Leader in JP Morgan Bangalore. 
+				</div>
+				<br style="clear:both;">
+				</div>
+				<div style="text-align:center;">
+			
+			It is a coincidence that both their favortie movie is "Andaaz Apna Apna".
+			</div>
+			</div>
+			<img src="bride.png" style="width:10%;float:right;margin-top:20%;" />
+		</div>
+	</div>
+	<div class="step slide" id="story" data-x="12000" data-z="3000" data-rotate-z="170">
+		<div style="width:1000px;">
+			<div>
+				<div style="padding-bottom: 20px;border-bottom: 2px solid #f9778a;color:#5fc7b8;">
+					<img src="met.jpg" style="width: 25%;float:left;"/>
+					<div style="float:right;width:70%;">
+						<h2 style="font-size:48px;text-transform:uppercase;color:#f9778a;">How we met</h2>
+						 They were introduced by their parents. Initially things were slow, Praful wrote to Sonal and she wrote back. They arranged to meet on Skype. One Skype session and it was BOOM (well atleast according to Praful :)). They knew they were instantly attracted to each other. Both of them had a feeling of similarity in terms of charachter, morals and up bringing. It really seemed to them that this was not the first time they were meeting. After 8 months of extended Skype sessions (sometimes up to 20 hours a week!) and incessasant Whatsapp messages, it finally came time to meet each other person. On Februrary 25th 2014, they finally met. To their relief, they both acknowledged that reality was not so different when compared to Skype. Praful quickly decided to make a move and seal the deal fast. <br/>
+					</div>
+					<br style="clear:both;">
+				</div>
+				<div style="padding-top: 20px;padding-bottom: 20px;border-bottom: 2px solid #f9778a;color:#5fc7b8;">
+					<div style="float:left;width:70%;">
+						<h2 style="font-size:48px;text-transform:uppercase;color:#f9778a;">The Proposal</h2>
+						<br/>
+						Praful setup a nice arrangment with Taj Vivanta in Bangalore. He got Sonal's favorite strawberries, candles and deserts. He escorted Sonal to the setup, engagement ring in hand. As as Sonal sat down, Praful got on his knees and proposed. <br/>
+						It then came time to break the news and celebrate with the Family.
+					</div>
+					<img src="met2.jpg" style="width: 25%;float:right;"/>
+					<br style="clear:both;">
+				</div>
+				<div style="padding-top: 20px;padding-bottom: 20px;color:#5fc7b8;">
+					<img src="engage.jpg" style="width: 25%;float:left;"/>
+					<div style="float:right;width:70%;">
+						<h2 style="font-size:48px;text-transform:uppercase;color:#f9778a;">
+						THE ENGAGEMENT</h2>
+						 Praful and Sonal got engaged in Allahabad, the ancestral home of Praful. Close family memebers were invited from both sides of the family and there were immense celebrations.
+					</div>
+					<br style="clear:both;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="step slide" id="wedding" data-x="3000">
+		<div style="width:1000px;margin-top:50px;">
+			<section style="float:left;width:40%;">
+			<div style="padding-bottom:100px;border-bottom: 2px solid #E0674A;">
+				<h1 style="font-size:48px;text-transform:uppercase;color:#E0674A;">Sangeet</h1>
+				<h2 style="color:#5fc7b8;">December 2, 2014 at 8pm <br /> 32nd Milestone</h2>
+			</div>
+			<div style="padding-top:100px;">
+				<div style="width:70%;float:left;">
+					<h1 style="font-size:48px;text-transform:uppercase;color:#E0674A;">Ceremony</h1>
+					<h2 style="color:#5fc7b8;">December 3, 2014 at 8pm <br />Double Tree By Hilton </h2>
+				</div>
+				<img src="doubletree.png" style="width:30%;float:right;"/>
+			</div>
+			</section>
+			<img src="wedding.png" style="width:40%;float:right;margin-top:-140px;"/>
+		</div>
+	</div>
+	<div class="step slide" id="accomodation" data-x="19500" data-z="1000" data-rotate-y="45">
+		<div style="width:1000px;margin-top:50px;">
+			<img src="accomodations.png" style="width:40%;float:left;"/>
+			<section style="float:right;width:40%;">
+			<div style="padding-bottom:100px;border-bottom: 2px solid #f9778a;">
+				<h1 style="font-size:48px;text-transform:uppercase;color:#f9778a;">Hotels</h1>
+				<h2 style="color:#5fc7b8;">OYO Inn - Golf Course Road <br/>
+				D - 111, Golf Course Road <br/>
+				Vigyan Vihar, Sector 56 <br/>
+				Gurgaon, Haryana 122011, India <br/>
+				+91 80 10 044466 </h2>
+			</div>
+			<div style="padding-top:100px;">
+				<div>
+					<h1 style="font-size:48px;text-transform:uppercase;color:#f9778a;">Directions</h1>
+					<h2 style="color:#5fc7b8;">NH8 is great!</h2>
+				</div>
+			</div>
+			</section>
+		</div>
+	</div>
+</div>
+<script src="js/impress.js"></script>
+<script src="js/jquery.jplayer.min.js"></script>
+<script>impress().init();</script>
+<script src="js/snap.svg-min.js"></script>
+<script>
+			(function() {
+				function init() {
+					var speed = 250,
+						easing = mina.easeinout;
+					[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+							pathConfig = {
+								from : path.attr( 'd' ),
+								to : el.getAttribute( 'data-path-hover' )
+							};
+						el.addEventListener( 'mouseenter', function() {
+							path.animate( { 'path' : pathConfig.to }, speed, easing );
+						} );
+						el.addEventListener( 'mouseleave', function() {
+							path.animate( { 'path' : pathConfig.from }, speed, easing );
+						} );
+					} );
+				}
+				init();
+			})();
+		</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52581460-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		</body>
+
+</html>
