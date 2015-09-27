@@ -257,19 +257,19 @@ body {
 }
 
 #bg-image {
-    position: fixed; 
-    top: -50%; 
-    left: -50%; 
-    width: 200%; 
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
     height: 200%;
 }
 #bg-image img {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    margin: auto; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     min-width: 50%;
     min-height: 50%;
 }
@@ -351,7 +351,7 @@ section h2 {
     .header-container.sticky {
         position: fixed;
         top: 15px;
-        
+
         animation:thedrop 1s 1;
         -moz-animation:thedrop 1s 1;
         -webkit-animation:thedrop 1s 1;
@@ -527,7 +527,7 @@ section h2 {
         font-size: 1.4em;
         line-height: 145%;
         padding: 0 20px;
-    }  
+    }
 
 }
 
@@ -572,7 +572,7 @@ section h2 {
         width: 100%;
     }
 
-  
+
 }
 
 /* ==========================================================================
