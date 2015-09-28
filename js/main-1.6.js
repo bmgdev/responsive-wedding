@@ -24,10 +24,10 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/MIT-license.txt
  * jQuery Picture
  * http://jquerypicture.com
  * http://github.com/Abban/jQuery-Picture
- * 
+ *
  * @version 0.9
  * @author Abban Dunne http://abandon.ie
- * 
+ *
  */(function(e){e.fn.picture=function(t){var n={container:null,ignorePixelRatio:!1},r=e.extend({},n,t);this.each(function(){function a(o){if(o)if(s.get(0).tagName.toLowerCase()=="figure"){var a=s.data();e.each(a,function(e){var n;n=e.replace(/[^\d.]/g,"");n&&t.push(n)})}else s.find("source").each(function(){var n,r;n=e(this).attr("media");if(n){r=n.replace(/[^\d.]/g,"");t.push(r)}});var c=0;r.container==null?n=e(window).width()*u:n=e(r.container).width()*u;e.each(t,function(e,t){parseInt(n)>=parseInt(t)&&parseInt(c)<=parseInt(t)&&(c=t)});if(i!==c){i=c;s.get(0).tagName.toLowerCase()=="figure"?l():f()}}function f(){var t=new Object;s.find("source").each(function(){var n,r,i;n=e(this).attr("media");r=e(this).attr("src");n?i=n.replace(/[^\d.]/g,""):i=0;t[i]=r});if(s.find("img").length==0){var n='<img src="'+t[i]+'" style="'+s.attr("style")+'" alt="'+s.attr("alt")+'">';e(">a",s).length==0?s.append(n):e(">a",s).append(n)}else s.find("img").attr("src",t[i])}function l(){var t=new Object,n=s.data();e.each(n,function(e,n){var r;r=e.replace(/[^\d.]/g,"");r||(r=0);t[r]=n});if(s.find("img").length==0){var r='<img src="'+t[i]+'" alt="'+s.attr("title")+'">';e(">a",s).length==0?s.append(r):e(">a",s).append(r)}else s.find("img").attr("src",t[i])}var t=new Array,n,i,s,o,u=1;!r.ignorePixelRatio&&window.devicePixelRatio!==undefined&&(u=window.devicePixelRatio);s=e(this);a(!0);o=!1;e(window).resize(function(){o!==!1&&clearTimeout(o);o=setTimeout(a,200)})})}})(jQuery);
 
 $(function() {
@@ -35,35 +35,35 @@ $(function() {
 	// Do our DOM lookups beforehand
 	var nav_container = $(".header-container");
 	var nav = $("#nav");
-	
+
 	var top_spacing = 15;
 	var waypoint_offset = 50;
 
 	nav_container.waypoint({
 		handler: function(event, direction) {
-			
+
 			if (direction == 'down') {
-			
+
 				nav_container.css({ 'height':nav.outerHeight(), 'position':'', 'bottom':''  });
 				nav_container.stop().addClass("sticky").css("top",-nav.outerHeight()).animate({"top":top_spacing});
-				
+
 			} else {
 				nav_container.css({ 'top':'', 'height':'' });
 				nav_container.stop().removeClass("sticky").css({'position':'absolute', "bottom":nav.outerHeight()+waypoint_offset}).animate({"bottom":"20"});
 			}
-			
+
 		},
 		offset: function() {
 			return -nav.outerHeight()-waypoint_offset;
 		}
 	});
-	
+
 	var sections = $("section");
 	var navigation_links = $("#nav ul li a");
-	
+
 	sections.waypoint({
 		handler: function(event, direction) {
-		
+
 			var active_section;
 			active_section = $(this);
 			if (direction === "up") active_section = active_section.prev();
@@ -75,8 +75,8 @@ $(function() {
 		},
 		offset: '25%'
 	})
-	
-	
+
+
 	navigation_links.click( function(event) {
 
 		$.scrollTo(
